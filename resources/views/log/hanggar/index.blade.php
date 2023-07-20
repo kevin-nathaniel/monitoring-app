@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Log Activity Mobil PK</title>
+    <title>Log Activity Hanggar</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -61,12 +61,12 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h3 class="h3 mb-0 text-gray-800">Log Activity 2</h3>
+                        <h3 class="h3 mb-0 text-gray-800">Log Activity 1</h3>
                     </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tabel Mobil PK</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Tabel Hanggar</h6>
                         </div>
                         <div class="card-body">
                         <div class="table-responsive">
@@ -76,44 +76,46 @@
                                             <th>No</th>
                                             <th>Hari</th>
                                             <th>Tanggal</th>
-                                            <th>Kendaraan</th>
+                                            <th>Jenis Unit</th>
                                             <th>Waktu</th>
-                                            <th>Body Kendaraan</th>
-                                            <th>Voltase Baterai</th>
-                                            <th>Cek Air ACCU</th>
-                                            <th>Oli Mesin</th>
-                                            <th>Oli Gardan</th>
-                                            <th>Filter Oli</th>
-                                            <th>Filter Bahan Bakar</th>
-                                            <th>Exhaust Pipe</th>
-                                            <th>Minyak Rem</th>
+                                            <th>Oli Kompresor</th>
+                                            <th>Vanbelt</th>
+                                            <th>Tabung Kompresor</th>
+                                            <th>Safety Value</th>
+                                            <th>Kontaktor</th>
+                                            <th>Push Button</th>
+                                            <th>Line</th>
+                                            <th>Chain</th>
+                                            <th>Grease</th>
+                                            <th>Kabel</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($damkar as $konten)
+                                        @foreach ($hanggar as $konten)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $konten->hari }}</td>
                                             <th>{{ $konten->tgl }}</th>
-                                            <th>{{ $konten->kendaraan }}</th>
+                                            <th>{{ $konten->nama }}</th>
                                             <th>{{ $konten->waktu }}</th>
-                                            <th>{{ $konten->body }}</th>
-                                            <th>{{ $konten->voltase }}</th>
-                                            <th>{{ $konten->accu }}</th>
-                                            <th>{{ $konten->oli }}</th>
-                                            <th>{{ $konten->gardan }}</th>
-                                            <th>{{ $konten->filter_oli }}</th>
-                                            <th>{{ $konten->filter_bahan_bakar }}</th>
-                                            <th>{{ $konten->exhaust }}</th>
-                                            <th>{{ $konten->minyak }}</th>
+                                            <th>{{ $konten->oli_kompresor }}</th>
+                                            <th>{{ $konten->vanbelt }}</th>
+                                            <th>{{ $konten->tabung_kompresor }}</th>
+                                            <th>{{ $konten->safety_value }}</th>
+                                            <th>{{ $konten->kontaktor }}</th>
+                                            <th>{{ $konten->push_button }}</th>
+                                            <th>{{ $konten->line }}</th>
+                                            <th>{{ $konten->chain }}</th>
+                                            <th>{{ $konten->grease }}</th>
+                                            <th>{{ $konten->kabel }}</th>
                                             <td>
-                                                <a href="/dashboard/log-damkar/{{ $konten->id }}/edit" class="btn btn-success"><i class="far fa-edit" style="color:white" ></i></a>
-                                                <form action=" /dashboard/log-damkar/{{ $konten->id }}" method="post" class="d-inline">
+                                                <a href="/dashboard/log-hanggar/{{ $konten->id }}/edit" class="btn btn-success"><i class="far fa-edit" style="color:white" ></i></a>
+                                                <form action="/dashboard/log-hanggar/{{ $konten->id }}" method="post" class="d-inline">
                                                     @method('delete')
                                                     @csrf
-                                                    <button class="btn btn-danger " onclick="return confirm('Yakin ingin menghapus?')"><i class="fa fa-trash" style="color:white height: 16px; width: 18px;"></i></a>
+                                                    <button class="btn btn-danger " onclick="return confirm('Yakin hapus?')"><i class="fa fa-trash" style="color:white height: 16px; width: 18px;"></i></a>
                                                 </form>
                                             </td>
                                         </tr>
@@ -146,7 +148,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
@@ -160,6 +162,7 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
+
 </body>
 
 </html>

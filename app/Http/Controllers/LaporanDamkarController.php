@@ -38,12 +38,24 @@ class LaporanDamkarController extends Controller
     public function viewPDF($id)
     {
         $damkar = Damkar::findOrFail($id);
-        return view('laporan.damkar.print');
+        return view('laporan.damkar.print', compact('damkar'));
     }
 
-    public function generatePDF()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return App\Models\Damkar;
+     */
+    public function generatePDF($id)
     {
-        $pdf = Pdf::loadview('laporan.damkar.print');
-        return $pdf->download('laporan_inspeksi.pdf');
+        $damkar = Damkar::findOrFail($id);
+        $data = ['damkar' => $damkar];
+
+        try {
+            $pdf = PDF::loadView('laporan.damkar.print', $data);
+            return $pdf->download('laporan_inspeksi.pdf');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to generate PDF: ' . $e->getMessage());
+        }
     }
 }

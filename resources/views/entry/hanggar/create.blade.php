@@ -69,7 +69,7 @@
                         <div class="col-xl-12 col-md-12 mb-5">
                             <div class="card mb-4">
                                     <div class="card-body">
-                                            <form id="contactForm" action="/dashboard/inspeksi/hanggar" method="POST" enctype="multipart/form-data">
+                                            <form id="contactForm" action="/dashboard/inspeksi/hanggar" method="post" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -91,11 +91,11 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <p>
-                                                            Pilih Kendaraan:
-                                                            <select class="form-control" name="kendaraan" required>
-                                                                <option value="" disabled selected>Silahkan Pilih Kendaraan</option>
-                                                                <option value="Supra">Supra</option>
-                                                                <option value="Honda">Honda</option>
+                                                            Pilih Jenis Unit:
+                                                            <select class="form-control" name="nama" required>
+                                                                <option value="" disabled selected>Silahkan Pilih Jenis Unit</option>
+                                                                <option value="Kompresor">Kompresor</option>
+                                                                <option value="Crane">Crane</option>
                                                             </select>
                                                         </p>
                                                     </div>
@@ -105,95 +105,109 @@
                                                             <select class="form-control" name="waktu" required>
                                                                 <option value="" disabled selected>Silahkan Pilih Waktu</option>
                                                                 <option value="Pagi s/d Siang">Pagi s/d Siang</option>
-                                                                <option value="Siang s/d Sor">Siang s/d Sore</option>
+                                                                <option value="Siang s/d Sore">Siang s/d Sore</option>
                                                             </select>
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <hr>
                                                 <p class="text-center">
-                                                    <b>INSPEKSI ENGINE OFF</b>
+                                                    <b>INSPEKSI KONDISI BAGIAN ASET</b>
                                                 </p>
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <p>
-                                                            Body Kendaraan :
-                                                            <select class="form-control" name="body">
+                                                            Oli Kompresor :
+                                                            <select class="form-control" name="oli_kompresor">
                                                                 <option value="" disabled selected>Silahkan Pilih Kondisi</option>
                                                                 <option value="Sangat Baik">SANGAT BAIK</option>
                                                                 <option value="Baik">BAIK</option>
-                                                                <option value="Layak Pakai">LAYAK PAKAI</option>
-                                                                <option value="Rusak">RUSAK</option>
-                                                                <option value="Rusak Parah">RUSAK PARAH</option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
                                                             </select>
                                                         </p>
                                                         <p>
-                                                            Voltase Baterai/ACCU :
-                                                            <select class="form-control" name="voltase">
-                                                                <option value="" disabled selected>Silahkan Pilih Kondisi</option>
-                                                                <option value="100 - 90">100 - 90</option>
+                                                            Vanbelt :
+                                                            <select class="form-control" name="vanbelt">
+                                                            <option value="" disabled selected>Silahkan Pilih Kondisi</option>
+                                                                <option value="Sangat Baik">SANGAT BAIK</option>
                                                                 <option value="Baik">BAIK</option>
-                                                                <option value="<50"> <50 </option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
                                                             </select>
                                                         </p>
                                                         <p>
-                                                            Cek Air ACCU :
-                                                            <select class="form-control" name="accu">
-                                                                <option value="" disabled selected>Silahkan Pilih Batas</option>
-                                                                <option value="batasbawah">BATAS BAWAH</option>
-                                                                <option value="batasnormal">BATAS NORMAL</option>
+                                                            Tabung Kompresor :
+                                                            <select class="form-control" name="tabung_kompresor">
+                                                            <option value="" disabled selected>Silahkan Pilih Kondisi</option>
+                                                                <option value="Sangat Baik">SANGAT BAIK</option>
+                                                                <option value="Baik">BAIK</option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
                                                             </select>
                                                         </p>
                                                         <p>
-                                                            Oli Mesin :
-                                                            <select class="form-control" name="oli">
-                                                                <option value="" disabled selected>Silahkan Pilih Batas</option>
-                                                                <option value="batasbawah">BATAS BAWAH</option>
-                                                                <option value="batasnormal">BATAS NORMAL</option>
-                                                            </select>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <p>
-                                                            Oli Gardan :
-                                                            <select class="form-control" name="gardan">
-                                                                <option value="" disabled selected>Silahkan Pilih Kondisi</option>
-                                                                <option value="baik">BAIK</option>
-                                                                <option value="buruk">BURUK</option>
-                                                            </select>
-                                                        </p>
-                                                        <p>
-                                                            Filter Oli :
-                                                            <select class="form-control" name="filter_oli">
-                                                                <option value="" disabled selected>Silahkan Pilih Kondisi</option>
-                                                                <option value="baik">KONDISI BAIK</option>
-                                                                <option value="buruk">KONDISI BURUK</option>
-                                                            </select>
-                                                        </p>
-                                                        <p>
-                                                            Filter Bahan Bakar :
-                                                            <select class="form-control" name="filter_bahan_bakar">
-                                                                <option value="" disabled selected>Silahkan Pilih Kondisi</option>
-                                                                <option value="baik">KONDISI BAIK</option>
-                                                                <option value="buruk">KONDISI BURUK</option>
-                                                            </select>
-                                                        </p>
-                                                        <p>
-                                                            Exhaust Pipe :
-                                                            <select class="form-control" name="exhaust">
-                                                                <option value="" disabled selected>Silahkan Pilih Kondisi</option>
-                                                                <option value="baik">KONDISI BAIK</option>
-                                                                <option value="buruk">KONDISI BURUK</option>
+                                                            Safety Value :
+                                                            <select class="form-control" name="safety_value">
+                                                            <option value="" disabled selected>Silahkan Pilih Kondisi</option>
+                                                                <option value="Sangat Baik">SANGAT BAIK</option>
+                                                                <option value="Baik">BAIK</option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
                                                             </select>
                                                         </p>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <p>
-                                                            Minyak Rem :
-                                                            <select class="form-control" name="minyak">
-                                                                <option value="" disabled selected>Silahkan Pilih Kondisi</option>
-                                                                <option value="ada">ADA</option>
-                                                                <option value="tidakada">TIDAK ADA</option>
+                                                            Kontaktor :
+                                                            <select class="form-control" name="kontaktor">
+                                                            <option value="" disabled selected>Silahkan Pilih Kondisi</option>
+                                                                <option value="Sangat Baik">SANGAT BAIK</option>
+                                                                <option value="Baik">BAIK</option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
+                                                            </select>
+                                                        </p>
+                                                        <p>
+                                                            Push Button :
+                                                            <select class="form-control" name="push_button">
+                                                            <option value="" disabled selected>Silahkan Pilih Kondisi</option>
+                                                                <option value="Sangat Baik">SANGAT BAIK</option>
+                                                                <option value="Baik">BAIK</option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
+                                                            </select>
+                                                        </p>
+                                                        <p>
+                                                            Line :
+                                                            <select class="form-control" name="line">
+                                                            <option value="" disabled selected>Silahkan Pilih Kondisi</option>
+                                                                <option value="Sangat Baik">SANGAT BAIK</option>
+                                                                <option value="Baik">BAIK</option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
+                                                            </select>
+                                                        </p>
+                                                        <p>
+                                                            Chain :
+                                                            <select class="form-control" name="chain">
+                                                            <option value="" disabled selected>Silahkan Pilih Kondisi</option>
+                                                                <option value="Sangat Baik">SANGAT BAIK</option>
+                                                                <option value="Baik">BAIK</option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
+                                                            </select>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <p>
+                                                            Grease :
+                                                            <select class="form-control" name="grease">
+                                                            <option value="" disabled selected>Silahkan Pilih Kondisi</option>
+                                                                <option value="Sangat Baik">SANGAT BAIK</option>
+                                                                <option value="Baik">BAIK</option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
+                                                            </select>
+                                                        </p>
+                                                        <p>
+                                                            Kabel :
+                                                            <select class="form-control" name="kabel">
+                                                            <option value="" disabled selected>Silahkan Pilih Kondisi</option>
+                                                                <option value="Sangat Baik">SANGAT BAIK</option>
+                                                                <option value="Baik">BAIK</option>
+                                                                <option value="Tidak Baik">TIDAK BAIK</option>
                                                             </select>
                                                         </p>
                                                     </div>
@@ -201,24 +215,27 @@
                                                     <hr>
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <p>
-                                                            Foto Kendaraan
+                                                            <label for="image" class="form-label">Foto Unit</label>
                                                             <input type="file" class="form-control-file" name="foto">
-                                                            </p>
                                                         </div>
                                                     </div>
-                                                    {{-- <hr> --}}
-                                                    {{-- <div class="row">
-                                                        <div class="col-md-4">
-                                                            <p>
-                                                            Tanda Tangan Petugas
-                                                            <div class="wrapper">
-                                                            <canvas id="signature-pad" width="200 height=200"></canvas>
-                                                            </div>
-                                                            </p>
-                                                        </div>
-                                                    </div> --}}
+
                                                     <hr>
+                                                    <div class="row">
+                                                        <div class="col-md-3 t  ext-center ">
+                                                            <div class="">
+                                                                <p>Tanda Tangan Petugas</p>
+                                                            </div>
+                                                            <div class="" >
+                                                                <image style="height: 160px; width: 160px;" src="{{ asset('img/ttd-rahman.png') }}"></image>
+                                                            </div>
+                                                            <div class="">
+                                                                <p>Rahman</p>
+                                                            </div>
+                                                </div>
+                                            </div>
+                                                    <hr>
+
                                                     <div class="row ">
                                                         <div class="col-md-12 text-right">
                                                             <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">Confirm</button>

@@ -9,5 +9,5 @@ class Hanggar extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['hari','tgl','nama','oli_kompresor','vanbelt','tabung_kompresor','safety_valve','kontaktor','push_button','line','chain','grease' ,'kabel' ,'foto'];
+    protected $fillable = ['hari','tgl','nama', 'waktu', 'oli_kompresor','vanbelt','tabung_kompresor','safety_value','kontaktor','push_button','line','chain','grease' ,'kabel' ,'foto'];
 }

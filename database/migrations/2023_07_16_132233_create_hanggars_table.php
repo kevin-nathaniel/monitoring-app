@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('hari')->require;
             $table->date('tgl')->require;
-            $table->date('nama')->require;
+            $table->string('nama')->require;
+            $table->string('waktu')->require;
             $table->string('oli_kompresor')->require;
             $table->string('vanbelt')->require;
             $table->string('tabung_kompresor')->require;
-            $table->string('safety_valve')->require;
+            $table->string('safety_value')->require;
             $table->string('kontaktor')->require;
             $table->string('push_button')->require;
             $table->string('line')->require;

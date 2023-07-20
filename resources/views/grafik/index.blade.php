@@ -13,6 +13,27 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+            ['Label',                                             'Jumlah'],
+            ['Belum Siap Digunakan Atau Rusak',         {{$countketrusak}}],
+            ['Siap Digunakan Tapi Rawan',               {{$countketrawan}}],
+            ['Siap Digunakan Dan Tidak Rusak',          {{$countketsiap}}]
+            ]);
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data);
+        }
+    </script>
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -61,39 +82,55 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Grafik Kerusakan Fasilitas Airport Equipment</h1>
-                    <p class="mb-4">Berikut grafik laporan kerusakan fasilitas yang terjadi untuk Section Airport Equipment</p>
+                    <p class="mb-4">Berikut grafik laporan kerusakan fasilitas yang terjadi untuk Section Airport Equipment </p>
 
                     <!-- Content Row -->
                     <div class="row">
+                        <div class="col-lg-7 order-lg-1">
+                            <div class="card shadow mb-4">
+                                <div class="card-body">
+                                    <form method="post" action="/dashboard/grafik">
+                                        @csrf
+                                        <div class="pl-lg-1">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="">Kesiapan Unit:</label>
+                                                        <input min="0" max="300" type="number" id="number" class="form-control" name="nilai"  placeholder="Silahkan Input Nilai">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-success text-center">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Display the keterangan based on input value -->
+                                        <div class="pl-lg-1">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <hr>
+                                                        <label class="form-control-label" for="keterangan">Keterangan:</label>
+                                                        <input type="text" id="keterangan" class="form-control" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Donut Chart -->
-                        <div class="col-xl-4 col-lg-5">
+                        <div class="col-xl-5 col-lg-5">
                             <div class="card shadow mb-4">
+                                <div id="piechart" style="width: 600px; height: 500px;"></div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-pie pt-4">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    !!! Placeholder !!!
+                                    Persentase Kesiapan Unit
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-xl-8 col-lg-7">
-
-                            <!-- Bar Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-body">
-                                    <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    !!! Placeholder !!!
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
 
                 </div>
@@ -126,13 +163,25 @@
     <!-- Custom scripts for all pages-->
     <script type="text/javascript" src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
-    <!-- Page level plugins -->
-    <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#number').on('input', function() {
+                var nilai = $(this).val();
+                var keterangan = '';
 
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
-    <script src="{{ asset('js/demo/chart-bar-demo.js') }}"></script>
+                if (nilai >= 0 && nilai <= 50) {
+                    keterangan = 'Belum Siap Digunakan Atau Rusak';
+                } else if (nilai > 50 && nilai <= 100) {
+                    keterangan = 'Siap Digunakan Tapi Rawan';
+                } else {
+                    keterangan = 'Siap Digunakan Dan Tidak Rusak';
+                }
+
+                $('#keterangan').val(keterangan);
+            });
+        });
+    </script>
 
 </body>
 

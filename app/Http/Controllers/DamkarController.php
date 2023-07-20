@@ -15,7 +15,7 @@ class DamkarController extends Controller
      */
     public function index()
     {
-        return view ('log-activity.damkar.index', [
+        return view ('log.damkar.index', [
             'damkar' => Damkar::orderBy('id', 'asc')->latest()->get(),
         ]);
     }
@@ -83,7 +83,7 @@ class DamkarController extends Controller
      */
     public function edit($id)
     {
-        return view('log-activity.damkar.edit',[
+        return view('log.damkar.edit',[
             'inspeksi' => Damkar::orderBy('id', 'asc')->first()->get()
         ])->with(['damkar' => Damkar::findOrFail($id)]);
     }

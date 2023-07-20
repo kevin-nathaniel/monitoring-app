@@ -154,28 +154,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <!-- 3 Kolom -->
-                                    <!-- <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="form-group focused">
-                                                <label class="form-control-label" for="current_password">Current password</label>
-                                                <input type="password" id="current_password" class="form-control" name="current_password" placeholder="Current password">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="form-group focused">
-                                                <label class="form-control-label" for="new_password">New password</label>
-                                                <input type="password" id="new_password" class="form-control" name="new_password" placeholder="New password">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="form-group focused">
-                                                <label class="form-control-label" for="confirm_password">Confirm password</label>
-                                                <input type="password" id="confirm_password" class="form-control" name="password_confirmation" placeholder="Confirm password">
-                                            </div>
-                                        </div>
-                                    </div> -->
                                 </div>
                                 </form>
                             </div>

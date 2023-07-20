@@ -109,8 +109,12 @@
                                             <th>{{ $konten->exhaust }}</th>
                                             <th>{{ $konten->minyak }}</th>
                                             <td>
-                                                <a href="/view/{{ $konten->id }}" class="btn btn-warning"><i class="fa fa-eye" aria-hidden="true" style="color:white" ></i></a>
-                                                <a href="/generate/{{ $konten->id }}" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true" style="color:white" ></i></a>
+                                                <a href="/dashboard/log-damkar/{{ $konten->id }}/edit" class="btn btn-success"><i class="far fa-edit" style="color:white" ></i></a>
+                                                <form action=" /dashboard/damkar/{{ $konten->id }}" method="post" class="d-inline">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn btn-danger " onclick="return confirm('Yakin ingin menghapus?')"><i class="fa fa-trash" style="color:white height: 16px; width: 18px;"></i></a>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach
