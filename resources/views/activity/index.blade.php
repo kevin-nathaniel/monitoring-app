@@ -67,7 +67,7 @@
 
                         <!-- Hanggar Card -->
                         <div class="col-xl-6 col-md-5 mb-4">
-                            <a class="nav-link" href="/dashboard/hanggar"><div class="card border-left-primary shadow h-100 py-2">
+                            <a class="nav-link" href="/dashboard/log/damkar/"><div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -85,7 +85,7 @@
 
                         <!-- PK Card -->
                         <div class="col-xl-6 col-md-5 mb-4">
-                            <a class="nav-link" href="/dashboard/damkar"><div class="card border-left-danger shadow h-100 py-2">
+                            <a class="nav-link" href="/dashboard/log-damkar/"><div class="card border-left-danger shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -103,7 +103,7 @@
 
                         <!-- Terminal Card -->
                         <div class="col-xl-6 col-md-5 mb-4">
-                            <a class="nav-link" href="/dashboard/terminal/"><div class="card border-left-success shadow h-100 py-2">
+                            <a class="nav-link" href="log-terminal.html"><div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">

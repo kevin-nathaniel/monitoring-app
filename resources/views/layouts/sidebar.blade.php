@@ -74,8 +74,8 @@
         </li>
 
         <!-- Nav Item - Log Activity -->
-        <li class="nav-item {{ Request::is('dashboard/log*') ? 'active' : '' }}">
-            <a class="nav-link" href="/dashboard/log">
+        <li class="nav-item {{ Request::is('dashboard/activity*') ? 'active' : '' }}">
+            <a class="nav-link" href="/dashboard/activity">
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>Log Activity</span>
             </a>

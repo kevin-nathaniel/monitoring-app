@@ -9,13 +9,15 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\InspeksiController;
 use App\Http\Controllers\HanggarController;
 use App\Http\Controllers\DamkarController;
-use App\Http\Controllers\LogController;
 use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LaporanDamkarController;
 use App\Http\Controllers\BobotController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\TerminalController;
+use App\Http\Controllers\PKController;
+use App\Http\Controllers\ActivityController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,11 +53,6 @@ Route::resource('/dashboard/inspeksi/hanggar', HanggarController::class)->middle
 Route::resource('/dashboard/inspeksi/damkar', DamkarController::class)->middleware('auth');
 Route::resource('/dashboard/inspeksi/terminal', TerminalController::class)->middleware('auth');
 
-// Log Activity Inspeksi
-Route::resource('/dashboard/log', LogController::class)->middleware('auth');
-Route::resource('/dashboard/log-hanggar', DamkarController::class)->middleware('auth');
-Route::resource('/dashboard/damkar', DamkarController::class)->middleware('auth');
-
 // Laporan Inspeksi
 Route::resource('/dashboard/laporan', LaporanController::class)->middleware('auth');
 Route::resource('/dashboard/laporan-damkar', LaporanDamkarController::class)->middleware('auth');
@@ -66,4 +63,7 @@ Route::get('/pdf/{id}/generate', [LaporanDamkarController::class, 'generatePDF']
 
 // Grafik Laporan
 Route::resource('/dashboard/grafik/', GrafikController::class)->middleware('auth');
+
+// Activity Inspeksi
+Route::resource('/dashboard/activity', ActivityController::class)->middleware('auth');
 
